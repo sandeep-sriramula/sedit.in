@@ -1,0 +1,146 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.gallery {
+  display: grid;
+  background-color: black;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  padding: 10px;
+}
+
+.image-tile {
+  cursor: pointer; /* Change the cursor to indicate the tile is interactive */
+
+  /* ... other styles ... */
+}
+
+.image-title-overlay {
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for the overlay */
+  /* You may adjust other styling as necessary */
+}
+
+.image-tile img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* optional */
+}
+
+.image-tile:hover .image-title-overlay {
+  opacity: 1; /* This will make the overlay fully visible when the tile is hovered */
+}
+
+
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+  backdrop-filter: blur(10px);
+  opacity: 0; /* Start fully transparent */
+  visibility: hidden; /* Not visible initially */
+  transition: opacity 0.3s, visibility 0.3s, background-color 0.3s; /* Smooth transition for opacity and visibility */
+}
+
+.modal-backdrop.show {
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Now visible */
+  background-color: rgba(0, 0, 0, 0.8); /* Transition to darker background */
+}
+
+.modal-content {
+  position: relative; 
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s; /* Smooth transition for transform */
+  transform: translateY(-20px); /* Start slightly above the final position */
+  opacity: 0; /* Start fully transparent */
+}
+
+.modal-content.show {
+  transform: translateY(0); /* Move to final position */
+  opacity: 1; /* Fade to fully visible */
+}
+
+.modal-content img {
+  max-width: 90%; /* Adjust as necessary for better spacing within the viewport */
+  max-height: 80vh; /* Limits the image height to 80% of the viewport height */
+  display: block; /* Ensures no extra space at the bottom of the image */
+  margin: auto; /* Centers the image horizontally and vertically */
+  border-radius: 20px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 6px;
+  right: 40px;
+  border: none;
+  background: none;
+  color: white; /* Ensure the color contrasts well with the modal background */
+  font-size: 24px; /* Make it clearly visible */
+  cursor: pointer; /* Indicates the element is clickable */
+  padding: 10px; /* Larger clickable area */
+  border-radius: 20px; /* Circular button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s; /* Smooth transition for hover effects */
+}
+
+.modal-close-btn:hover, .modal-close-btn:focus {
+  background-color: rgba(255, 255, 255, 0.3); /* Subtle hover effect */
+  color: #FFF; /* Change color on hover/focus for better visibility */
+  outline: none; /* Removes the default focus outline */
+}
+
+.App-header img {
+  width: 200px; /* Or any other size */
+  margin: 0 auto; /* This centers the image in the header */
+  display: block;
+  /* Additional styles */
+}
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
